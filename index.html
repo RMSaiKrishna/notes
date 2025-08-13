@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About • Audio & Text Notes</title>
+  <meta name="description" content="A simple, private, mobile‑friendly notes app that stores audio and text using your browser (IndexedDB/Blob)." />
+  <style>
+    :root {
+      --bg: #0b1020; /* subtle indigo-night gradient base */
+      --bg2: #0f152b;
+      --card: #11182f;
+      --text: #e8ecf2;
+      --muted: #b8c0d9;
+      --brand: #6ea8fe;
+      --brand-strong: #86b6ff;
+      --ring: rgba(110,168,254,.5);
+      --ok: #7ee787;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f7fb;
+        --bg2: #ffffff;
+        --card: #ffffff;
+        --text: #0d1321;
+        --muted: #495368;
+        --brand: #3461ff;
+        --brand-strong: #274bdb;
+        --ring: rgba(52,97,255,.35);
+        --ok: #1e9e51;
+      }
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px clamp(16px, 4vw, 32px);
+    }
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: clamp(28px, 5.5vw, 44px);
+      letter-spacing: -0.02em;
+    }
+    .subtitle { color: var(--muted); margin-bottom: 18px; font-size: clamp(14px, 2.8vw, 18px); }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px; border-radius: 999px;
+      background: rgba(110,168,254,.12); color: var(--brand-strong);
+      border: 1px solid rgba(110,168,254,.3);
+      font-weight: 600; font-size: 13px;
+    }
+    ul { padding-left: 18px; }
+    .grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+    .feature {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .feature h3 { margin: 0 0 6px 0; font-size: 18px; }
+    .feature p { margin: 0; color: var(--muted); }
+
+    .cta-wrap {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-top: 22px;
+    }
+    .btn {
+      appearance: none; -webkit-appearance: none; cursor: pointer;
+      border: none; border-radius: 999px; padding: 12px 18px;
+      font-weight: 700; font-size: 16px; letter-spacing: 0.2px;
+      color: white; background: var(--brand);
+      box-shadow: 0 6px 16px rgba(52,97,255,.28);
+    }
+    .btn:hover { filter: brightness(1.05); }
+    .btn:focus { outline: 3px solid var(--ring); outline-offset: 2px; }
+
+    .meta { color: var(--muted); font-size: 14px; }
+    .tag { display:inline-block; padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,.08); margin-right: 6px; font-size: 12px; }
+    .ok { color: var(--ok); font-weight: 600; }
+
+    a { color: var(--brand-strong); text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <span class="pill">Audio & Text Notes • Private by design</span>
+      <h1>About this application</h1>
+      <p class="subtitle">A minimal, mobile‑friendly note keeper that lets you save <strong>voice memos</strong> and <strong>text notes</strong> directly in your browser using <em>IndexedDB</em> and Blob storage. Your data stays on your device unless you export it.</p>
+
+      <div class="grid" role="list">
+        <div class="feature" role="listitem">
+          <h3>Why you'll love it</h3>
+          <ul>
+            <li>Record clear audio notes with one tap.</li>
+            <li>Type quick text notes with timestamps.</li>
+            <li>Works offline; everything is stored locally.</li>
+            <li>Export notes as files whenever you want.</li>
+          </ul>
+        </div>
+        <div class="feature" role="listitem">
+          <h3>Privacy & storage</h3>
+          <p>We use your browser's <code>IndexedDB</code> to store note data as Blobs. Nothing leaves your device unless you choose to share or export.</p>
+          <p class="meta"><span class="tag">IndexedDB</span><span class="tag">Blob</span><span class="tag">PWA‑ready</span></p>
+        </div>
+      </div>
+
+      <div class="feature" style="margin-top:16px">
+        <h3>How it works</h3>
+        <ol>
+          <li>Tap the microphone to start/stop recording. Audio is saved as a Blob.</li>
+          <li>Give your note a title and optional description.</li>
+          <li>Everything is saved locally. You can export or share any note via link.</li>
+        </ol>
+      </div>
+
+      <div class="cta-wrap">
+        <p class="meta">Ready to try it? It takes less than 10 seconds to create your first note. <span class="ok">No sign‑up needed.</span></p>
+        <!-- TODO: Replace href with your real app URL/path -->
+        <a class="btn" href="./app/index.html" aria-label="Open the Notes Application">Open the Application →</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
